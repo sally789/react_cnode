@@ -1,0 +1,49 @@
+#root,.page, .content{
+    height: 100% !important;
+}
+/* 页面尺寸显示 <576px */
+.wrap{
+    margin: 0 5px;
+}
+/* >=576 */
+@media all and (min-width:576px){
+    .wrap{
+        margin: 0 10px;
+    }
+}
+/* >=768 */
+@media all and (min-width:768px){
+    .wrap{
+        margin: 0 15px;
+    }
+}
+@media all and (min-width:992px){
+    .wrap{
+        margin: 0 20px;
+    }
+}
+@media all and (min-width:1200px){
+    .wrap{
+        width:1000px;
+        margin: 0 auto;
+    }
+}
+@media all and (min-width:1600px){
+    .wrap{
+        width:1200px;
+        margin: 0 auto;
+    }
+}
+
+/* header */
+/* topic_list */
+.topic_list{
+    background-color: #fff !important;
+    padding:0 10px;
+}
+.avatar{
+    padding-left: 15px;
+}
+.tag{
+    margin-left:5px
+}
