@@ -6,7 +6,7 @@ import {Alert} from 'antd'
 import Details from './detail'
 export default function TopicDetail(){
     let {loading,data,isError,err_msg}=useSelector(state=> state.detail)
-    console.log(useSelector(state=> state))
+    console.log(data)
     let {id}=useParams()
     let history=useHistory()
     let getData=useTopicDetail()

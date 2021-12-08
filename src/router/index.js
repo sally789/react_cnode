@@ -12,7 +12,6 @@ const route=[
         path: '/',
         exact: true,
         render(props) {
-            // console.log(props)
             const {location} = props
             let {search}=location
             const {tab,page}=qs.parse(search.slice(1))
@@ -25,6 +24,7 @@ const route=[
         path: '/topic/:id',
         exact: true,
         render(props) {
+            console.log(props)
             return <TopicDetail {...props} />
         },
     },{
