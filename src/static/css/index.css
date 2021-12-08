@@ -1,5 +1,8 @@
-#root,.page, .content{
+/* #root,.page{
     height: 100% !important;
+} */
+img{
+    max-width: 100%;
 }
 /* 页面尺寸显示 <576px */
 .wrap{
@@ -46,4 +49,8 @@
 }
 .tag{
     margin-left:5px
+}
+.fromNow{
+    text-align:right;
+    padding-right: 10px;
 }

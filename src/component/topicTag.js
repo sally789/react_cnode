@@ -18,6 +18,7 @@ function tag(tab){
     return null
 }
 export default function TopicTag(props){
+    // console.log(props)
     let {tab}=props;
     return tag(tab)
 }

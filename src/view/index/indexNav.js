@@ -4,15 +4,15 @@ import {Link, useLocation} from 'react-router-dom'
 import{indexNav,types} from '../../router/index'
 import qs from 'qs'
 
-export default function IndexNav(props){
+export default function IndexNav(){
     let {search} = useLocation()
     let {tab}=qs.parse(search.slice(1))
-    console.log(tab)
-    console.log(types.indexOf(tab))
+    let activeIndex=tab===undefined ?0:(types.indexOf(tab))
     return (
-        <Menu mode='horizontal' defaultSelectedKeys={['0']} style={{marginTop:'5px'}}>
+        <Menu mode='horizontal' defaultSelectedKeys={[activeIndex+'']} style={{marginTop:'5px'}}>
             {
                 indexNav.map((data, index) =>{ 
+                    // console.log(data)
                     return (
                     <Menu.Item key={index}>
                         <Link to={data.to}>{data.txt}</Link>

@@ -1,8 +1,8 @@
 import React from 'react'
 import qs from 'qs'
 import IndexPage from '../view/index/index'
-import TopicDetail from '../view/topic/detail'
-import UserDetail from '../view/user/detail'
+import TopicDetail from '../view/topic'
+import UserDetail from '../view/user'
 import StartPage from '../view/start/start'
 import AboutPage from '../view/about/about'
 import ErrPage from '../view/page404/err'
@@ -15,7 +15,6 @@ const route=[
             // console.log(props)
             const {location} = props
             let {search}=location
-            console.log(qs.parse(search.slice(1)))
             const {tab,page}=qs.parse(search.slice(1))
             if((tab===undefined&&page===undefined)||
                (types.includes(tab)&&(page===undefined||page>0)))

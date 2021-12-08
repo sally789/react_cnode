@@ -20,7 +20,7 @@ export default function App () {
                         path={item.path} 
                         exact={item.exact}
                         render={(props)=>{
-                          props.username='aaa'
+                          // console.log(props)
                           return item.render(props)
                         }}
                         />

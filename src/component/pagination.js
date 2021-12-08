@@ -1,0 +1,28 @@
+import React from 'react'
+import {Pagination} from 'antd'
+import {Link,useLocation} from 'react-router-dom'
+import qs from 'qs'
+export default function IndexPagination(){
+  let {search}=useLocation()
+  let {tab='all',page=1}=qs.parse(search.slice(1))
+    return (
+        <Pagination
+        defaultCurrent={page}
+        defaultPageSize={20}
+        total={200}
+        style={{backgroundColor:'#fff',padding:'5px 0',textAlign:'center'}}
+        itemRender={(page,type)=>{
+          switch(type){
+            case 'page':
+              return <Link to={`/?tab=${tab}&page=${page}`}>{page}</Link>
+            case 'prev':
+              return <Link to={`/?tab=${tab}&page=${page}`}>{"<"}</Link>
+            case 'next':
+              return <Link to={`/?tab=${tab}&page=${page}`}>{">"}</Link>
+            default:
+              return <Link to={`/?tab=${tab}&page=${page}`}>{"......"}</Link>
+          }
+        }}
+      />
+    )
+}
