@@ -7,7 +7,7 @@ export default function IndexPagination(){
   let {tab='all',page=1}=qs.parse(search.slice(1))
     return (
         <Pagination
-        defaultCurrent={page}
+        current={page-0}
         defaultPageSize={20}
         total={200}
         style={{backgroundColor:'#fff',padding:'5px 0',textAlign:'center'}}

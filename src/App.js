@@ -1,16 +1,15 @@
 import React from 'react'
 import {Layout} from 'antd'
-import { useSelector } from 'react-redux'
-import { Route ,Switch} from 'react-router'
+import { Route ,Switch,withRouter} from 'react-router'
 import { route } from './router'
 import HeaderComponent from '../src/component/header'
 import FooterComponent from '../src/component/footer'
 const {  Content } = Layout;
-export default function App () {
-  console.log(useSelector(state=>state))
+const App=function  (props) {
+  console.log(props)
   return (
     <Layout className='page'>
-      <HeaderComponent/>
+      <HeaderComponent {...props} />
         <Content style={{ padding: '0 50px' }} className='content'>
           <div className="wrap">
             <Switch>
@@ -20,7 +19,7 @@ export default function App () {
                         path={item.path} 
                         exact={item.exact}
                         render={(props)=>{
-                          // console.log(props)
+                          console.log(props)
                           return item.render(props)
                         }}
                         />
@@ -32,3 +31,4 @@ export default function App () {
     </Layout>
   )
 }
+export default withRouter(App)

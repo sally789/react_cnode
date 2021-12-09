@@ -5,12 +5,13 @@ import TopicTag from '../../component/topicTag'
 import Dayjs from '../../component/day'
 export default function Details(props){
     console.log('进入详情页');
-    const {loading,data}=props
-    console.log(loading)
+    const {loading,data}=props  
     const {author,title,content,create_at,good,top,tab,visit_count} = data
+    const {loginname=''}=author
     // const {loginname}=author
 
-    console.log(data.author)
+    // console.log(data.author)
+    
     // console.log(data.author.loginname)
     console.log(data)
     return (
@@ -18,7 +19,7 @@ export default function Details(props){
         title={
             <Fragment>
                 <h1><TopicTag tab={top?'top':(good?'good':tab)}/>{title}</h1>
-                <p>作者:<Link to={`/user`}>{title}</Link>
+                <p>作者:<Link to={`/user/${loginname}`}>{loginname}</Link>
                    &nbsp;&nbsp; 创建事件:<Dayjs date={create_at}/>--浏览人数:{visit_count}              
                 </p>
             </Fragment>

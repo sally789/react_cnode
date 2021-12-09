@@ -6,7 +6,7 @@ img{
 }
 /* 页面尺寸显示 <576px */
 .wrap{
-    margin: 0 5px;
+    margin: 0 10px;
 }
 /* >=576 */
 @media all and (min-width:576px){

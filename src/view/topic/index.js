@@ -4,9 +4,13 @@ import {useParams, useHistory} from 'react-router-dom'
 import {useTopicDetail} from '../../store/action/index'
 import {Alert} from 'antd'
 import Details from './detail'
+import CommentList from '../../component/comment'
 export default function TopicDetail(){
-    let {loading,data,isError,err_msg}=useSelector(state=> state.detail)
-    console.log(data)
+    let {loading,data,isError,err_msg}=useSelector(state=> {
+        // console.log('state',state);
+        return state.detail      
+    })
+    // console.log(data)
     let {id}=useParams()
     let history=useHistory()
     let getData=useTopicDetail()
@@ -28,6 +32,7 @@ export default function TopicDetail(){
                 />:(
                     <Fragment>
                         <Details loading={loading} data={data}/>
+                        <CommentList data={data.replies} loading={loading}/>
                     </Fragment>
                 )
             }

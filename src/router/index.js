@@ -6,7 +6,8 @@ import UserDetail from '../view/user'
 import StartPage from '../view/start/start'
 import AboutPage from '../view/about/about'
 import ErrPage from '../view/page404/err'
-
+import LoginPage from '../view/login/index'
+import SearchPage from '../view/search/index'
 const route=[
     {
         path: '/',
@@ -21,14 +22,21 @@ const route=[
             return <ErrPage {...props} />
         },
     },{
-        path: '/topic/:id',
+        path: '/search/:keywords',
         exact: true,
         render(props) {
             console.log(props)
+            return <SearchPage {...props} />
+        },
+    },{
+        path: '/topic/:id',
+        exact: true,
+        render(props) {
+            // console.log(props)
             return <TopicDetail {...props} />
         },
     },{
-        path: '/user/:username',
+        path: '/user/:loginname',
         exact: true,
         render(props) {
             return <UserDetail {...props} />
@@ -46,6 +54,12 @@ const route=[
             return <AboutPage {...props} />
         },
     },{
+        path: '/login',
+        exact: true,
+        render(props) {
+            return <LoginPage {...props} />
+        },
+    },{
         path: '',
         exact: true,
         render(props) {
@@ -53,6 +67,7 @@ const route=[
         },
     },
 ]
+//标题导航
 const nav=[{
     to:'/',
     txt:'首页'
@@ -62,7 +77,11 @@ const nav=[{
 },{
     to:'/about',
     txt:'关于我们'
+},{
+    to:'/login',
+    txt:'登录'
 }]
+//二级导航
 const types=['all','good','share','ask','job','dev']
 const indexNav=[{
     to:'/?tab=all',

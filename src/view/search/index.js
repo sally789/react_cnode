@@ -1,15 +1,17 @@
 import React,{useEffect} from 'react'
 import {useLocation} from 'react-router-dom'
-import IndexNav from './indexNav'
 import {useSelector} from 'react-redux'
 import ListComponent from '../../component/list'
 import {useTopicsList} from '../../store/action/index'
 import qs from 'qs'
 import IndexPagination from '../../component/pagination'
-export default function IndexPage(){
+export default function Search(){
     let {data,loading}=useSelector(state=> state.topics)
     // console.log(useSelector(state=> state))
-    // console.log('indexpag',data)
+    console.log('indexpag',data)
+    let searchData=data.filter((item)=>{
+        // return item.
+    })
     let getData=useTopicsList();
     const {search}=useLocation()
     let {tab='all',page=1}=qs.parse(search.slice(1))
@@ -18,7 +20,6 @@ export default function IndexPage(){
     },[tab,page])
     return (
         <div>
-            <IndexNav/>
             <ListComponent data={data} loading={loading}/>
             <IndexPagination/>
         </div>

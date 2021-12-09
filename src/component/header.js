@@ -1,20 +1,37 @@
-import React from 'react'
-import {Link} from 'react-router-dom'
+import React ,{useRef,useHistory}from 'react'
+import {Link, useLocation,withRouter} from 'react-router-dom'
 import {nav} from '../router/index'
-import {Layout,Affix,Row, Col, Menu} from 'antd'
+import {Layout,Affix,Row, Col, Menu,Input} from 'antd'
+const { Search } = Input;
 const { Header} = Layout;
-export default function HeaderComponent(){
+const HeaderComponent=function (props){
+    // let history = useHistory()
+    console.log(props)
+    let {pathname,state}=useLocation()
+    let searchEl=useRef(null)
+    let activeIndex=nav.findIndex((navdata)=>{
+        return navdata.to===pathname
+    })
+    let onSearch=()=>{
+        if(searchEl.current.state.value!==''&&searchEl.current.state.value!==undefined)
+        props.history.push(`/search/${searchEl.current.state.value}`)
+        console.log(searchEl.current.state.value)
+        console.log(props.history)
+    }
     return (
         <Affix offsetTop={0}>
         <Layout>
             <Header>
                 <div className="wrap">
                     <Row>
-                        <Col xs={6} sm={4} md={2}>
-                            <h1 className="logo"><Link to=''>LOGO</Link></h1>
+                        <Col span={2}>
+                            <h1 className="logo"><Link to='/'>LOGO</Link></h1>
                         </Col>
-                        <Col xs={18} sm={20} md={22}>
-                            <Menu mode="horizontal" theme='dark' defaultSelectedKeys={['0']}>
+                        <Col span={7}>
+                            <Search ref={searchEl}  placeholder="input search text" onSearch={onSearch} style={{ marginTop:15}} />
+                        </Col>
+                        <Col span={12} offset={3}>
+                            <Menu mode="horizontal" theme='dark' defaultSelectedKeys={activeIndex+''}>
                                 {
                                     nav.map((navdata,index)=>{
                                         return (
@@ -32,3 +49,4 @@ export default function HeaderComponent(){
         </Affix>
     )
 }
+export default withRouter(HeaderComponent)
