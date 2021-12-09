@@ -75,5 +75,24 @@ function useUser() {
             })
     }
 }
-    
-export {useTopicsList,useTopicDetail,useUser}
+ //获取搜索列表数据
+function useSearchList() {
+    let dispatch=useDispatch()
+    return function(tab='all',page=1,limit=500,mdrender=true) {
+        dispatch(
+            {type:'search_loading'}
+        )
+        axios.get(`https://cnodejs.org/api/v1/topics?tab=${tab}&page=${page}&limit=${limit}&mdrender=${mdrender}`).then(
+            (response) => {
+                console.log('搜索列表获取成功')
+                dispatch(
+                    {
+                        type:'search_loadover',
+                        data:response.data.data
+                    }
+                )
+            }
+        )
+    }
+}   
+export {useTopicsList,useTopicDetail,useUser,useSearchList}

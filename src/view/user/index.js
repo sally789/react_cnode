@@ -21,7 +21,7 @@ export default function UserDetail(){
             <Card loading={loading} style={{textAlign: 'center'}}>
                 <Avatar size={80} icon={<UserOutlined />} src={avatar_url}/>
                 <p style={{marginTop:20}}>用户名：{loginname}  注册时间：{<Dayjs date={create_at}/>}  积分：{score}</p>
-                <p>github:<a href={`https://github.com/${githubUsername}`} target="_blank">>https://github.com/{githubUsername}</a></p>
+                <p>github:<a href={`https://github.com/${githubUsername}`} target="_blank">https://github.com/{githubUsername}</a></p>
             </Card>
             <Card loading={loading} title={"最近创建的话题"} type={'inner'}>
                 <ListComponent loading={loading} data={recent_topics}/>

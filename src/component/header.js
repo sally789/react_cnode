@@ -1,11 +1,10 @@
-import React ,{useRef,useHistory}from 'react'
+import React ,{useRef}from 'react'
 import {Link, useLocation,withRouter} from 'react-router-dom'
 import {nav} from '../router/index'
 import {Layout,Affix,Row, Col, Menu,Input} from 'antd'
 const { Search } = Input;
 const { Header} = Layout;
 const HeaderComponent=function (props){
-    // let history = useHistory()
     console.log(props)
     let {pathname,state}=useLocation()
     let searchEl=useRef(null)

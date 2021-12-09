@@ -1,6 +1,9 @@
 /* #root,.page{
     height: 100% !important;
 } */
+html, body{
+    height: 100%;
+}
 img{
     max-width: 100%;
 }
@@ -43,6 +46,7 @@ img{
 .topic_list{
     background-color: #fff !important;
     padding:0 10px;
+    height: 100%;
 }
 .avatar{
     padding-left: 15px;
@@ -53,4 +57,15 @@ img{
 .fromNow{
     text-align:right;
     padding-right: 10px;
+}
+/* footer */
+.footer{
+    text-align:center;
+    height: 60px;
+}
+form{
+    text-align:center;
+    width:400px;
+    display: block;
+    margin: 0 auto;
 }
