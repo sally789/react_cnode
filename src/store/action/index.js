@@ -94,5 +94,31 @@ function useSearchList() {
             }
         )
     }
-}   
-export {useTopicsList,useTopicDetail,useUser,useSearchList}
+}  
+//设置注册
+function useRegister(){
+    let dispatch=useDispatch()
+    
+    return function(){
+        // console.log(data)
+        dispatch(
+            {
+                type:'Login_loading',
+            }
+        )
+        axios.get('https://dev-v2.bundleb2b.net/apidoc-server/app/mock/57/register').then(
+            response => {
+                console.log('注册发起请求')
+                console.log(response.data.password)
+                dispatch(
+                    {
+                        type:'Login_loadover',
+                        password:response.data.password,
+                        nickname:response.data.nickname,
+                    }
+                )
+            }
+        )
+    }
+}
+export {useTopicsList,useTopicDetail,useUser,useSearchList,useRegister}

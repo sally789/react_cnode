@@ -1,12 +1,18 @@
 import React from 'react'
 import {List,Avatar,Col} from 'antd'
-import {Link} from 'react-router-dom'
+import {Link,withRouter} from 'react-router-dom'
 import { UserOutlined } from '@ant-design/icons';
 import TopicTag from '../component/topicTag'
+import {nav} from '../router/index'
 import Dayjs from './day'
-export default function ListComponent(props){
+function ListComponent(props){
     let {loading,data} = props
     // console.log('list',data)
+    const ifLoaded=()=>{
+        if(nav[3].txt==='登录'){
+            props.history.push('/login')
+        }
+    }
     return (
         <List
         className='topic_list'
@@ -17,7 +23,7 @@ export default function ListComponent(props){
             const {author,last_reply_at,good,tab,top,title,id} = data
             const {avatar_url,loginname}=author
             return (
-            <List.Item>
+            <List.Item onClick={ifLoaded}>
                 <Col xs={24} md={20} className='avatar'>
                     <Link to={`/user/${loginname}`}>
                         <Avatar icon={<UserOutlined />} src={avatar_url} title={loginname}/>
@@ -35,3 +41,4 @@ export default function ListComponent(props){
             
     )
 }
+export default withRouter(ListComponent)

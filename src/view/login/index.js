@@ -1,14 +1,43 @@
 import React from 'react'
-import { Form, Input, Button, Checkbox } from 'antd';
+import {useSelector} from 'react-redux'
+import { Form, Input, Button, Checkbox ,Card,Breadcrumb,Row,Col} from 'antd';
+import {Link,withRouter} from 'react-router-dom'
 import { UserOutlined, LockOutlined } from '@ant-design/icons';
-export default function Login (){
+import {nav} from '../../router/index'
+import {useRegister} from '../../store/action/index'
+const Login=function  (props){
+  const {password,nickname} = useSelector(state=>state.login)
+  const getData=useRegister()
+  const onCheng=()=>{
+    getData()
+  }
+  const goBack=(values)=>{
+  console.log(props)
+   if(values.password===password&&values.username===nickname){
+     nav[3].txt='退出登录'
+     nav[3].to='/'
+     props.history.push('/')
+   }else{
+     alert('请输入正确用户名和密码')
+   }
+    console.log(values.password)
+    console.log(password)
+  }
     return(
-        <div style={{textAlign: 'center',width:'400px',marginTop:'40px'}}>
+      <Row>
+        <Col span={12}>
+        <Card 
+          title={<Breadcrumb>
+              <Breadcrumb.Item><Link to='/'>主页</Link></Breadcrumb.Item>
+              <Breadcrumb.Item>登录</Breadcrumb.Item>
+          </Breadcrumb>} 
+          type='inner' style={{marginTop:'40px'}}>
         <Form
+        onValuesChange={onCheng}
         name="normal_login"
         className="login-form"
         initialValues={{ remember: true }}
-        // onFinish={onFinish}
+        onFinish={goBack}
       >
         <Form.Item
           name="username"
@@ -30,19 +59,34 @@ export default function Login (){
           <Form.Item name="remember" valuePropName="checked" noStyle>
             <Checkbox>Remember me</Checkbox>
           </Form.Item>
-  
-          <a className="login-form-forgot" href="">
-            Forgot password
-          </a>
         </Form.Item>
   
         <Form.Item>
-          <Button type="primary" htmlType="submit" className="login-form-button">
+          <Button type="primary"  htmlType="submit" className="login-form-button">
             Log in
-          </Button>
-          Or <a href="">register now!</a>
+          </Button>&nbsp;&nbsp;
+          Or <Link to='/register'>register now!</Link>
         </Form.Item>
       </Form>
-      </div>
+      </Card>
+      </Col>
+      <Col span={2}>
+      </Col>
+      <Col span={10} style={{marginTop:40}}>
+            <Card title='关于' type='inner'>
+                <div>
+                  <p>CNode：Node.js专业中文社区</p>
+                  <p>在这里你可以：</p>
+                  <ul>
+                    <li>向别人提出你遇到的问题</li>
+                    <li>帮助遇到问题的人</li>
+                    <li>分享自己的知识</li>
+                    <li>和其它人一起进步</li>
+                  </ul>
+                </div>
+            </Card>
+      </Col>
+      </Row>
     )
 }
+export default withRouter(Login)

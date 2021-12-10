@@ -17,6 +17,13 @@ const HeaderComponent=function (props){
         console.log(searchEl.current.state.value)
         console.log(props.history)
     }
+    const isLogin=()=>{
+        if(nav[3].txt==='退出登录'){
+            alert('你已退出登录')
+            nav[3].txt='登录'
+            nav[3].to='/login'
+        }
+    }
     return (
         <Affix offsetTop={0}>
         <Layout>
@@ -33,9 +40,9 @@ const HeaderComponent=function (props){
                             <Menu mode="horizontal" theme='dark' defaultSelectedKeys={activeIndex+''}>
                                 {
                                     nav.map((navdata,index)=>{
-                                        return (
+                                        return  (
                                         <Menu.Item key={index}>
-                                            <Link to={navdata.to}>{navdata.txt}</Link>
+                                            <Link to={navdata.to} onClick={isLogin}>{navdata.txt}</Link>
                                         </Menu.Item>)
                                     })
                                 }

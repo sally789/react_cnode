@@ -8,6 +8,7 @@ import AboutPage from '../view/about/about'
 import ErrPage from '../view/page404/err'
 import LoginPage from '../view/login/index'
 import SearchPage from '../view/search/index'
+import RegisterPage from '../view/register/index'
 const route=[
     {
         path: '/',
@@ -58,6 +59,12 @@ const route=[
         exact: true,
         render(props) {
             return <LoginPage {...props} />
+        },
+    },{
+        path: '/register',
+        exact: true,
+        render(props) {
+            return <RegisterPage {...props} />
         },
     },{
         path: '',

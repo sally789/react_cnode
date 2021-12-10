@@ -9,7 +9,7 @@ export default function IndexNav(){
     let {tab}=qs.parse(search.slice(1))
     let activeIndex=tab===undefined ?0:(types.indexOf(tab))
     return (
-        <Menu mode='horizontal' defaultSelectedKeys={[activeIndex+'']} style={{marginTop:'5px'}}>
+        <Menu mode='horizontal' defaultSelectedKeys={[activeIndex+'']} style={{marginTop:'10px'}}>
             {
                 indexNav.map((data, index) =>{ 
                     // console.log(data)

@@ -65,7 +65,7 @@ img{
 }
 form{
     text-align:center;
-    width:400px;
+    /* width:400px; */
     display: block;
     margin: 0 auto;
 }

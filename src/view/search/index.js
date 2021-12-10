@@ -3,6 +3,7 @@ import {useLocation,useParams} from 'react-router-dom'
 import {useSelector} from 'react-redux'
 import ListComponent from '../../component/list'
 import {useSearchList} from '../../store/action/index'
+import IndexNav from '../index/indexNav'
 import qs from 'qs'
 export default function Search(){
     let {data,loading}=useSelector(state=> state.search)
@@ -23,6 +24,7 @@ export default function Search(){
     },[tab,page])
     return (
         <div>
+            <IndexNav/>
             <ListComponent data={searchData} loading={loading}/>
         </div>
     )
