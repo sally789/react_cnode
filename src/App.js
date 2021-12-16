@@ -1,33 +1,30 @@
 import React from 'react'
-import {Layout} from 'antd'
-import { Route ,Switch,withRouter} from 'react-router'
+import { Layout } from 'antd'
+import { Route, Switch, withRouter } from 'react-router-dom'
 import { route } from './router'
-import HeaderComponent from '../src/component/header'
-import FooterComponent from '../src/component/footer'
-const {  Content } = Layout;
-const App=function  (props) {
-  console.log(props)
+import HeaderComponent from './component/header'
+import FooterComponent from './component/footer'
+
+const { Content } = Layout
+function App(props) {
   return (
-    <Layout className='page'>
+    <Layout className="page">
       <HeaderComponent {...props} />
-        <Content style={{ padding: '0 50px' }} className='content'>
-          <div className="wrap">
-            <Switch>
-              {route.map((item, index)=>{
-                return <Route 
-                        key={index} 
-                        path={item.path} 
-                        exact={item.exact}
-                        render={(props)=>{
-                          console.log(props)
-                          return item.render(props)
-                        }}
-                        />
-              })}
-            </Switch>
-          </div>
-        </Content>
-      <FooterComponent/>
+      <Content style={{ padding: '0 50px' }} className="content">
+        <div className="wrap">
+          <Switch>
+            {route.map((item, index) => (
+              <Route
+                key={index.toString()}
+                path={item.path}
+                exact={item.exact}
+                render={(data) => item.render(data)}
+              />
+            ))}
+          </Switch>
+        </div>
+      </Content>
+      <FooterComponent />
     </Layout>
   )
 }

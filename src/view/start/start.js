@@ -1,7 +1,8 @@
 import React from 'react'
-import {Card,Breadcrumb} from 'antd'
-import {Link} from 'react-router-dom'
-let data=`
+import { Card, Breadcrumb } from 'antd'
+import { Link } from 'react-router-dom'
+
+const data = `
 <div class="markdown-text"><h2>Node.js 入门</h2>
 <p>《<strong>汇智网 Node.js 课程</strong>》</p>
 <p><a href="http://www.hubwiz.com/course/?type=nodes" target="_blank">http://www.hubwiz.com/course/?type=nodes</a></p>
@@ -31,15 +32,19 @@ let data=`
 <p>新手搭建 Node.js 服务器，推荐使用无需备案的 <a href="https://www.digitalocean.com/?refcode=eba02656eeb3" target="_blank">DigitalOcean(https://www.digitalocean.com/)</a></p>
 </div>
 `
-export default function StartPage(){
+export default function StartPage() {
     return (
-        <Card title={<Breadcrumb>
-                        <Breadcrumb.Item><Link to='/'>主页</Link></Breadcrumb.Item>
-                        <Breadcrumb.Item>新手入门</Breadcrumb.Item>
-                </Breadcrumb>} 
-        type='inner' style={{marginTop:10}}
+        <Card
+            title={(
+                <Breadcrumb>
+                    <Breadcrumb.Item><Link to="/">主页</Link></Breadcrumb.Item>
+                    <Breadcrumb.Item>新手入门</Breadcrumb.Item>
+                </Breadcrumb>
+            )}
+            type="inner"
+            style={{ marginTop: 10 }}
         >
-            <div dangerouslySetInnerHTML={{__html:data}}></div>
+            <div dangerouslySetInnerHTML={{ __html: data }} />
         </Card>
     )
 }

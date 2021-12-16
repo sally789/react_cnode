@@ -1,7 +1,8 @@
 import React from 'react'
-import {Card,Breadcrumb} from 'antd'
-import {Link} from 'react-router-dom'
-let data=`
+import { Card, Breadcrumb } from 'antd'
+import { Link } from 'react-router-dom'
+
+const data = `
 <div class="markdown-text"><h3>关于</h3>
 <p>CNode 社区为国内最大最具影响力的 Node.js 开源技术社区，致力于 Node.js 的技术研究。</p>
 <p>CNode 社区由一批热爱 Node.js 技术的工程师发起，目前已经吸引了互联网各个公司的专业技术人员加入，我们非常欢迎更多对 Node.js 感兴趣的朋友。</p>
@@ -15,15 +16,19 @@ let data=`
 <p>另，安卓用户同时可选择：<a href="https://github.com/TakWolf/CNode-Material-Design" target="_blank">https://github.com/TakWolf/CNode-Material-Design</a> ，这是 Java 原生开发的安卓客户端。</p>
 </div>
 `
-export default function AboutPage(){
+export default function AboutPage() {
     return (
-        <Card title={<Breadcrumb>
-                        <Breadcrumb.Item><Link to='/'>主页</Link></Breadcrumb.Item>
-                        <Breadcrumb.Item>关于</Breadcrumb.Item>
-                </Breadcrumb>} 
-        type='inner' style={{marginTop:10}}
+        <Card
+            title={(
+                <Breadcrumb>
+                    <Breadcrumb.Item><Link to="/">主页</Link></Breadcrumb.Item>
+                    <Breadcrumb.Item>关于</Breadcrumb.Item>
+                </Breadcrumb>
+            )}
+            type="inner"
+            style={{ marginTop: 10 }}
         >
-            <div dangerouslySetInnerHTML={{__html:data}}></div>
+            <div dangerouslySetInnerHTML={{ __html: data }} />
         </Card>
     )
 }
