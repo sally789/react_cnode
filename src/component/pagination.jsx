@@ -12,16 +12,16 @@ export default function IndexPagination() {
       defaultPageSize={20}
       total={200}
       style={{ backgroundColor: '#fff', padding: '5px 0', textAlign: 'center' }}
-      itemRender={(page, type) => {
+      itemRender={(pages, type) => {
         switch (type) {
           case 'page':
-            return <Link to={`/?tab=${tab}&page=${page}`}>{page}</Link>
+            return <Link to={`/?tab=${tab}&page=${pages}`}>{pages}</Link>
           case 'prev':
-            return <Link to={`/?tab=${tab}&page=${page}`}>{'<'}</Link>
+            return <Link to={`/?tab=${tab}&page=${pages}`}>{'<'}</Link>
           case 'next':
-            return <Link to={`/?tab=${tab}&page=${page}`}>{'>'}</Link>
+            return <Link to={`/?tab=${tab}&page=${pages}`}>{'>'}</Link>
           default:
-            return <Link to={`/?tab=${tab}&page=${page}`}>......</Link>
+            return <Link to={`/?tab=${tab}&page=${pages}`}>......</Link>
         }
       }}
     />

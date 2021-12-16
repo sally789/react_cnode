@@ -17,18 +17,18 @@ const data = `
 </div>
 `
 export default function AboutPage() {
-    return (
-        <Card
-            title={(
-                <Breadcrumb>
-                    <Breadcrumb.Item><Link to="/">主页</Link></Breadcrumb.Item>
-                    <Breadcrumb.Item>关于</Breadcrumb.Item>
-                </Breadcrumb>
-            )}
-            type="inner"
-            style={{ marginTop: 10 }}
-        >
-            <div dangerouslySetInnerHTML={{ __html: data }} />
-        </Card>
-    )
+  return (
+    <Card
+      title={(
+        <Breadcrumb>
+          <Breadcrumb.Item><Link to="/">主页</Link></Breadcrumb.Item>
+          <Breadcrumb.Item>关于</Breadcrumb.Item>
+        </Breadcrumb>
+        )}
+      type="inner"
+      style={{ marginTop: 10 }}
+    >
+      <div dangerouslySetInnerHTML={{ __html: data }} />
+    </Card>
+  )
 }

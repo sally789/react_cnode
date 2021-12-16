@@ -1,15 +1,16 @@
 import React from 'react'
 import qs from 'qs'
 import IndexPage from '../view/index/index'
-import TopicDetail from '../view/topic'
+import SearchPage from '../view/search/index'
+import LoginPage from '../view/login/index'
 import UserDetail from '../view/user'
+import TopicDetail from '../view/topic'
 import StartPage from '../view/start/start'
 import AboutPage from '../view/about/about'
 import ErrPage from '../view/page404/err'
-import LoginPage from '../view/login/index'
-import SearchPage from '../view/search/index'
 import RegisterPage from '../view/register/index'
-
+// 二级导航
+const types = ['all', 'good', 'share', 'ask', 'job', 'dev']
 const route = [
   {
     path: '/',
@@ -104,8 +105,7 @@ const nav = [
     txt: '登录',
   },
 ]
-// 二级导航
-const types = ['all', 'good', 'share', 'ask', 'job', 'dev']
+
 const indexNav = [
   {
     to: '/?tab=all',

@@ -37,10 +37,9 @@ const tailFormItemLayout = {
   },
 }
 
-function RegistrationForm(props) {
+function RegistrationForm() {
   const [form] = Form.useForm()
   const getDate = useRegister()
-  let data
   const onFinish = (values) => {
     // console.log('Received values of form: ', values)
     getDate(values)
@@ -168,7 +167,7 @@ function RegistrationForm(props) {
             >
               <Checkbox>
                 I have read the
-{' '}
+                {' '}
                 agreement
               </Checkbox>
             </Form.Item>
@@ -177,7 +176,7 @@ function RegistrationForm(props) {
             <Form.Item {...tailFormItemLayout}>
               <Button type="primary" htmlType="submit">
                 {/* <Link to="/login"></Link> */}
-Register
+                Register
               </Button>
             </Form.Item>
           </Form>

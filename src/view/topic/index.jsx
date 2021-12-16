@@ -36,11 +36,11 @@ export default function TopicDetail() {
           }}
         />
       ) : (
-          <>
-            <Details loading={loading} data={data} />
-            <CommentList data={data.replies} loading={loading} />
-          </>
-        )}
+        <>
+          <Details loading={loading} data={data} />
+          <CommentList data={data.replies} loading={loading} />
+        </>
+      )}
     </div>
   )
 }

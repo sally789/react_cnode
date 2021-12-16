@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useSelector } from 'react-redux'
 import {
   Form, Input, Button, Checkbox, Card, Breadcrumb, Row, Col,
@@ -11,12 +11,11 @@ import { useRegister } from '../../store/action/index'
 function Login(props) {
   const { password, nickname } = useSelector((state) => state.login)
   const getData = useRegister()
-  const onCheng = () => {
+  useEffect(() => {
     getData()
-  }
+  }, [])
   const { history } = props
   const goBack = (values) => {
-    // console.log(props)
     setTimeout(() => {
       if (values.password === password && values.username === nickname) {
         nav[3].txt = '退出登录'
@@ -24,8 +23,6 @@ function Login(props) {
       } else {
         alert('请输入正确用户名和密码')
       }
-      // console.log(values.password)
-      // console.log(password)
     }, 1000)
   }
   return (
@@ -42,7 +39,6 @@ function Login(props) {
           style={{ marginTop: '40px' }}
         >
           <Form
-            onValuesChange={onCheng}
             name="normal_login"
             className="login-form"
             initialValues={{ remember: true }}
@@ -74,9 +70,9 @@ function Login(props) {
               <Button type="primary" htmlType="submit" className="login-form-button">
                 Log in
               </Button>
-&nbsp;&nbsp;
-          Or
-<Link to="/register">register now!</Link>
+              &nbsp;&nbsp;
+              Or
+              <Link to="/register">register now!</Link>
             </Form.Item>
           </Form>
         </Card>
