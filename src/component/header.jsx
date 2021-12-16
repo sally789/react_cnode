@@ -18,8 +18,9 @@ function HeaderComponent(props) {
     }
   }
   const isLogin = () => {
-    if (nav[3].txt === '退出登录') {
+    if (localStorage.getItem('token')) {
       alert('你已退出登录')
+      localStorage.removeItem('token')
       nav[3].txt = '登录'
       nav[3].to = '/login'
     }
@@ -51,7 +52,7 @@ function HeaderComponent(props) {
                   </Menu.Item>
                   <Menu.Item key="3">
                     <Link to={nav[3].to} onClick={isLogin}>
-                      {nav[3].txt}
+                      {localStorage.getItem('token') ? '退出登录' : '登录'}
                     </Link>
                   </Menu.Item>
                 </Menu>

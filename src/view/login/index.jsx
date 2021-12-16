@@ -18,8 +18,11 @@ function Login(props) {
   const goBack = (values) => {
     setTimeout(() => {
       if (values.password === password && values.username === nickname) {
-        nav[3].txt = '退出登录'
-        history.push('/')
+        localStorage.setItem('token', values)
+        if (localStorage.getItem('token') !== '') {
+          nav[3].txt = '退出登录'
+          history.push('/')
+        }
       } else {
         alert('请输入正确用户名和密码')
       }

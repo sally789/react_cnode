@@ -27,5 +27,6 @@ module.exports = {
     'react/no-danger': 0,
     'react/function-component-definition': 0,
     'react/no-unstable-nested-components': 0,
+    'linebreak-style': 0,
   },
 }
