@@ -26,7 +26,7 @@ export default function AboutPage() {
         </Breadcrumb>
         )}
       type="inner"
-      style={{ marginTop: 10 }}
+      style={{ marginTop: 10, height: '100vh' }}
     >
       <div dangerouslySetInnerHTML={{ __html: data }} />
     </Card>

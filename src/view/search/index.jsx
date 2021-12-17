@@ -9,15 +9,12 @@ import IndexNav from '../index/indexNav'
 export default function Search() {
   const { data, loading } = useSelector((state) => state.search)
   const { keywords } = useParams()
-  // console.log(useParams())
-  // console.log('indexpag', data)
   const searchData = data.filter((item) => {
     if (item.title.includes(keywords)) {
       return item
     }
     return null
   })
-  // console.log(searchData)
   const getData = useSearchList()
   const { search } = useLocation()
   const { tab = 'all', page = 1 } = qs.parse(search.slice(1))

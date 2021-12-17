@@ -1,4 +1,3 @@
-/* eslint-disable react/no-danger */
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { Card } from 'antd'
@@ -6,7 +5,6 @@ import TopicTag from '../../component/topicTag'
 import Dayjs from '../../component/day'
 
 export default function Details(props) {
-  //   console.log('进入详情页');
   const { loading, data } = props
   const {
     author,

@@ -29,7 +29,7 @@ function Login(props) {
     }, 1000)
   }
   return (
-    <Row>
+    <Row style={{ height: '100vh' }}>
       <Col span={12}>
         <Card
           title={(
